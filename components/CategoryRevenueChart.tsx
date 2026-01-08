@@ -42,7 +42,7 @@ export default function CategoryRevenueChart({ data }: CategoryChartProps) {
                         cx="50%"
                         cy="50%"
                         labelLine={false}
-                        label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
+                        label={({ name, percent }) => `${name}: ${((percent ?? 0) * 100).toFixed(0)}%`}
                         outerRadius={80}
                         fill="#8884d8"
                         dataKey="value"
@@ -52,8 +52,8 @@ export default function CategoryRevenueChart({ data }: CategoryChartProps) {
                         ))}
                     </Pie>
                     <Tooltip
-                        formatter={(value: number, name, props: any) => [
-                            `฿${value.toFixed(2)} (${props.payload.count} ${t('itemsSold')})`,
+                        formatter={(value: number | undefined, name, props: any) => [
+                            `฿${(value ?? 0).toFixed(2)} (${props.payload.count} ${t('itemsSold')})`,
                             props.payload.name
                         ]}
                     />

@@ -59,7 +59,7 @@ export default function SalesRevenueChart({ data, period }: SalesRevenueChartPro
                         />
                         <YAxis tick={{ fontSize: 12 }} />
                         <Tooltip
-                            formatter={(value: number) => `฿${value.toFixed(2)}`}
+                            formatter={(value: number | undefined) => `฿${(value ?? 0).toFixed(2)}`}
                             labelFormatter={(label) => `${t('date')}: ${label}`}
                         />
                         <Legend />
